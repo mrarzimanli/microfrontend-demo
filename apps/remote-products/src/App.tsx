@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import type { RemoteAppProps } from "@micro/shared-types";
 import { Spinner } from "@micro/shared-ui";
 import { PRODUCT_ROUTES } from "@/constants/routes";
-import "./styles/remote.css";
 
 const ProductListPage = lazy(() => import("@/pages/ProductListPage").then((m) => ({ default: m.ProductListPage })));
 const ProductDetailPage = lazy(() =>

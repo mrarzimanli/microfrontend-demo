@@ -1,6 +1,4 @@
-/* Standalone dev only */
 @import "tailwindcss";
-
 @import "@micro/shared-config/styles/tokens.css";
 @import "@micro/shared-config/styles/base.css";
 @import "@micro/shared-config/styles/theme.css";

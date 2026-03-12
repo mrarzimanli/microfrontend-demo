@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import type { RemoteAppProps } from "@micro/shared-types";
 import { Spinner } from "@micro/shared-ui";
 import { ACCOUNT_ROUTES } from "@/constants/routes";
-import "./styles/remote.css";
 
 const ProfilePage = lazy(() => import("@/pages/ProfilePage").then((m) => ({ default: m.ProfilePage })));
 const SettingsPage = lazy(() => import("@/pages/SettingsPage").then((m) => ({ default: m.SettingsPage })));
