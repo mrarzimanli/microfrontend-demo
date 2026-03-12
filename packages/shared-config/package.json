@@ -1,0 +1,16 @@
+{
+    "name": "@micro/shared-config",
+    "version": "1.0.0",
+    "private": true,
+    "exports": {
+        "./styles/tokens.css": "./src/styles/tokens.css",
+        "./styles/base.css": "./src/styles/base.css",
+        "./styles/theme.css": "./src/styles/theme.css"
+    },
+    "scripts": {
+        "type-check": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "typescript": "^5.9.0"
+    }
+}

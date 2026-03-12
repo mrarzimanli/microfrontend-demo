@@ -1,0 +1,59 @@
+{
+    "name": "micro-frontends",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "node": ">=20",
+        "pnpm": ">=9"
+    },
+    "scripts": {
+        "dev": "pnpm build:remotes && concurrently -n \"host,products,account,products:watch,account:watch\" -c \"blue,green,purple,cyan,magenta\" \"pnpm --filter @micro/host dev\" \"pnpm --filter @micro/remote-products preview\" \"pnpm --filter @micro/remote-account preview\" \"pnpm --filter @micro/remote-products build --watch\" \"pnpm --filter @micro/remote-account build --watch\"",
+        "dev:host": "pnpm --filter @micro/host dev",
+        "dev:remotes": "pnpm --parallel --filter './apps/remote-*' preview",
+        "build:remotes": "pnpm --parallel --filter './apps/remote-*' build",
+        "build": "pnpm run --parallel --filter './apps/*' build",
+        "preview": "pnpm run --parallel --filter './apps/*' preview",
+        "test": "pnpm run --parallel --filter './apps/*' --filter '@micro/shared-utils' --filter '@micro/shared-ui' test",
+        "test:ui": "pnpm run --parallel --filter './apps/*' test:ui",
+        "lint": "pnpm run --parallel --filter './**' lint",
+        "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\" --ignore-path .prettierignore",
+        "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\" --ignore-path .prettierignore",
+        "type-check": "pnpm run --parallel --filter './**' type-check",
+        "storybook": "pnpm --filter @micro/shared-ui storybook",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "**/*.{js,json,css,md}": [
+            "prettier --write"
+        ]
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ],
+        "overrides": {
+            "vite": "^7.3.1"
+        }
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
+        "concurrently": "^9.0.0",
+        "eslint": "^9.0.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-react": "^7.37.0",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.3.3",
+        "prettier": "^3.3.0",
+        "prettier-plugin-tailwindcss": "^0.7.2",
+        "typescript": "^5.9.3"
+    }
+}

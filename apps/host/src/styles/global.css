@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Remotes must NOT @import "tailwindcss" to avoid cascade conflicts. */
+@source "../../../remote-products/src";
+@source "../../../remote-account/src";
+
+@import "@micro/shared-config/styles/tokens.css";
+@import "@micro/shared-config/styles/base.css";
+@import "@micro/shared-config/styles/theme.css";
